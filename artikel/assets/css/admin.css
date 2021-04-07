@@ -1,0 +1,154 @@
+.admin-content,
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.navbar {
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(63, 152, 235);
+    font-family: Georgia, serif;
+    z-index: 9999;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .2);
+}
+
+.navbar a.active {
+    background-color: rgb(185, 48, 48);
+    border-bottom: 2px solid rgb(8, 9, 110);
+}
+
+.navbar a {
+    display: inline-block;
+    font-size: 16px;
+    color: rgb(237, 238, 243);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin-left: 70px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.navbar a:hover {
+    background: -webkit-linear-gradient(#eee, rgba(248, 252, 14, 0.534));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.admin-wrapper {
+    display: flex;
+    height: 100%;
+}
+
+.admin-wrapper .left-sidebar {
+    flex: 2;
+    flex-grow: 2;
+    min-height: 100%;
+    background: rgb(10, 5, 32);
+}
+
+.admin-wrapper .left-sidebar ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0;
+    color: rgb(237, 238, 243);
+}
+
+.admin-wrapper .left-sidebar ul li a {
+    text-decoration: none;
+    color: rgb(237, 238, 243);
+    padding: 18px;
+    display: block;
+    border-bottom: 1px solid rgb(4, 4, 119);
+}
+
+.admin-wrapper .left-sidebar ul li a:hover {
+    background: rgb(4, 4, 119);
+}
+
+.admin-wrapper .admin-content {
+    flex: 8;
+    min-height: 100%;
+    padding: 40px 100px 100px;
+    overflow-y: auto;
+}
+
+.admin-content .page-title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.btn-btn-big {
+    text-decoration: none;
+    display: inline-block;
+    background: rgb(4, 4, 119);
+    color: cornsilk;
+}
+
+.btn-btn-big2 {
+    text-decoration: none;
+    display: inline-block;
+    background: rgb(4, 4, 119);
+    color: cornsilk;
+}
+
+table {
+    width: 100px;
+    border-collapse: collapse;
+    font-size: 1.1rem;
+}
+
+th,
+td {
+    padding: 30px;
+    text-align: left;
+    border-bottom: 1px solid grey;
+}
+
+.msg {
+    width: 100%;
+    margin: 5px auto;
+    background: white;
+    border-radius: 5px;
+    list-style: none;
+    padding: 10px 5px 10px 5px;
+}
+
+.sukses {
+    border: 1px solid rgb(9, 170, 9);
+    background: lightgreen;
+    color: green;
+}
+
+.eror {
+    border: 1px solid red;
+    color: rgb(199, 74, 24);
+    background: lightpink;
+}
+
+.edit {
+    color: darkgreen;
+    text-decoration: none;
+}
+
+.delete {
+    color: darkred;
+    text-decoration: none;
+}
+
+.publikasi {
+    color: rgb(4, 4, 119);
+    text-decoration: none;
+}
+
+.edit:hover,
+.delete:hover,
+.publikasi:hover {
+    text-decoration: underline;
+}
+
+form div {
+    margin-bottom: 20px;
+}

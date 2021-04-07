@@ -1,0 +1,612 @@
+
+/*Daftar konten
+1. Main
+2. Card
+3. Footer kiri
+4. Footer kanan
+5. Link 
+6. Ikon sosmed
+7. Responsive media screen footer*/
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+html, body, html * {
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+*, *:before, *:after{
+  box-sizing: border-box;
+}
+
+/*=============
+    Main
+==============*/
+main{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+
+  align-items:center;
+  justify-content:center;
+  color: #9b9b9b;
+  line-height: 3.8;
+  font-size: 80px;
+  text-transform: uppercase;
+  font-weight: bold;
+ 
+}
+
+/*=============
+    Card
+==============*/
+
+/*bagian div akan memanggil card yang telah dikonfigurasi
+dengan style berbeda*/
+.card1 {
+position: relative;
+width: 100%;
+display:flex;
+margin-top:0px;
+}
+
+.card1 .isikonten{
+  background:#162c3b;
+  padding:100px;
+  width: 50%;
+  
+}
+
+/*TEks dan judul untuk mendekorasi bagian teks dalam web saat dipanggil*/
+
+ .judul{
+  letter-spacing: 3px;
+  font-size: 30px;
+  color: #fff;
+  font-weight: 30px;
+  margin-bottom: 10px;
+}
+
+ .teks{
+  letter-spacing: 1px;
+  font-size:16px;
+  color: #fff;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+ .imgc1{
+  width:50%;
+  background:url(handshake750.png);
+  background-size:cover;
+  background-position: center;
+  opacity: 0.9;
+}
+
+ .imgcc{
+  margin-top: 100px;
+  margin-left: 100px;
+  width: 70%;
+  height: 30%;
+  background-position: center;
+}
+
+/*=============
+  LAYANAN
+==============*/
+
+/*Mengatur bagian layanan untuk card, teks, posisi dan ukuran*/
+.layanan{
+  background: #12222d;
+  padding:100px;
+  text-align:center;
+  
+  }
+
+  .layanan h2{
+    font-size: 15px;
+    padding-left: 35px;
+    padding-right: 35px;
+    font-style: italic;
+  
+  }
+
+  .layanan .judul p{
+    letter-spacing: 3px;
+    font-size: 30px;
+    color: #fff;
+    font-weight: 30px;
+    margin-bottom: 10px;
+  }
+
+  /*Container kecil berupa kotak yang akan membuat 
+  gambar sederhana untuk melengkapi penjelasan*/
+  
+  .layanan .container1{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 60px;
+  }
+  
+  .layanan .container1 .kotaklayanan{
+    position: relative;
+    background: rgb(231, 220, 189);
+    width: 300px;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .layanan .container1 .kotaklayanan img{
+    padding-top: 70px;
+    max-width: 100px;
+    }
+
+/*=============
+  TUJUAN
+==============*/
+    /*Mangatur bagian tujuan yang akan overlap daiatas bagian 
+    layanan dengam -300px */
+
+    .tujuan{
+      background: #5dbae8;
+      width: 100%;
+      padding: 100px;
+      padding-top: 300px;
+      margin-top: -300px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tujuan .konten2{
+      max-width: 800px;
+    }
+
+    .tujuan .img2{
+      max-width: 250px;
+    }
+
+    .tujuan .img2 img{
+      max-width:200px;
+    }
+
+  /*KLIEN*/
+  .klien{
+    background: #162c3b;
+    padding: 100px;
+    text-align: center;
+  }
+    
+  .klien .img2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+
+  .klien .img2 img{
+    max-width: 100px;
+    margin: 20px;
+    cursor: pointer;
+    opacity: 0.5;
+  }
+
+  
+  .klien .img2 img:hover{
+    opacity: 1;
+  }
+  
+.testimoni{
+  position: relative;
+  padding: 100px;
+  background: #12222d;
+  text-align: center;
+}
+
+/*=============
+ TTESTIMONI
+==============*/
+.testimoni .container2{
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 40px;
+flex-wrap: wrap;
+
+}
+
+.testimoni .container2 .konten3{
+  background: #fff;
+  padding: 60px 50px;
+  width: 400px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+}
+
+.testimoni .container2 .konten3{
+  font-style: italic;
+}
+
+.card-foot {
+  background-color: RGBA(12,0,0,0);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.kontak{
+  padding: 100px;
+  background: #162c3c;
+  text-align: center;
+}
+
+.imgc2{
+  width:50%;
+  background:url(checklist.jpg);
+  background-size:cover;
+  background-position: center;
+  opacity: 0.7;
+}
+
+.hijau{
+  background: #1e640c !important;
+  background-size: cover;
+  background-position: center;
+}
+
+/*FORM*/
+
+/*Untuk form yang digunakan bagian kontak*/
+
+.daftar .input{
+margin-bottom: 40px;
+}
+
+.daftar .input input{
+  width: 100%;
+  background: none;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: 200px;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  }
+
+  .daftar .input input::placeholder{
+    color: #fff;
+  }
+
+  .daftar .input textarea{
+    width: 100%;
+    background: none;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: 200px;
+    color: #fff;
+    min-height: 100px;
+    border-bottom: 2px solid #fff;
+    }
+
+    .daftar .input textarea::placeholder{
+      color: #fff;
+    }
+
+    .daftar .input input[type="submit"]{
+      font-weight: 200;
+      cursor: pointer;
+      }
+    
+      .daftar .input input[type="submit"]:hover{
+       font-weight: 500 ;
+       color: black;
+       background: #fff;
+        }
+    
+        .mapouter
+                {position:relative;
+                  text-align:right;
+                  height:500px;
+                  width:100%;
+                }
+              
+        .gmap_canvas {
+                overflow:hidden;
+                background:none!important;
+                height:500px;
+                width:100%}
+        
+                .imgc4{
+                  width:50%;
+                  background-size:cover;
+                  background-position: center;
+                  opacity: 0.9;
+                }
+
+                .imgc5{
+                  width:50%;
+                  background:url(adminitrasi.png);
+                  background-size:cover;
+                  background-position: center;
+                  opacity: 0.9; 
+                  padding-top: 600px;
+                }
+
+                .imgc6{
+                  width:50%;
+                  background:url(security.jpg);
+                  background-size:cover;
+                  background-position: center;
+                  opacity: 0.9; 
+                }
+
+                
+                .imgc7{
+                  width:50%;
+                  background:url(janitor.jpg);
+                  background-size:cover;
+                  background-position: center;
+                  opacity: 0.9; 
+                }
+
+                
+                .imgc8{
+                  width:50%;
+                  background:url(market.png);
+                  background-size:cover;
+                  background-position: center;
+                  opacity: 0.9; 
+                }
+
+                
+                .imgc9{
+                  width:50%;
+                  background:url(IT.png);
+                  background-size:cover;
+                  background-position: center;
+                  opacity: 0.9; 
+                }
+
+ /*=============
+  FOOTER
+==============*/
+
+footer {
+   display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+
+  flex-flow: row wrap;
+
+  padding: 50px;
+  color: black;
+  background-color: #ffffff;
+  
+  font-family: Georgia, serif;
+}
+
+.footer >*{
+  flex: 1 100%
+}
+
+/*=============
+  Footer kiri
+==============*/
+.footer-kiri{
+ margin-right: 1.25cm;
+ margin-bottom: 2cm;
+}
+
+.footer-kiri img{
+ width:30%;
+}
+
+.footer-kiri p{
+  padding-right: 20%;
+  color: black;
+
+}
+
+
+/*=============
+  Footer kanan
+==============*/
+.footer-kanan {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+
+  flex-flow: row wrap;
+
+}
+
+
+.footer-kanan > *{
+  flex: 1 50%;
+  margin-right: 1.25em;
+  
+}
+
+
+
+.footer-bawah{
+  text-align: center;
+  color: black;
+  padding-top: 50px;
+  padding-left: 100px;
+  
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0px ;
+}
+
+.footer li{
+  line-height:2em;
+  
+}
+
+.footer-active{
+  border-left: 2px solid black;
+  padding-left: 20px;
+}
+
+.footer a{
+  text-decoration:none;
+  
+}
+
+.footer a:hover{
+              color:rgb(13, 60, 148);
+            }
+
+.box a{
+  color: black;
+}
+
+
+
+/*=============
+   Ikon sosmed
+==============*/
+
+.sosmed a i{
+background: #364a62;
+width: 40px;
+height: 40px;
+display: inline-block;
+margin-right: 10px;
+}
+
+.sosmed i{
+color: #e7f2f4;
+padding: 10px 12px;
+font-size: 20px;
+}
+
+
+/*=============
+  responsive media screen footer
+==============*/
+
+@media screen and (max-width:1040px){
+  .gambar{
+    padding: 20px 50px;
+  }
+
+  .gambar .konten1 h2{
+    font-size: 40px;
+  }
+
+  .card1 {
+    flex-direction: column;
+  }
+
+  .card1 .isikonten h2{
+    font-size: 30px;
+  }
+
+  .card1 .isikonten p{
+    font-size: 16px;
+  }
+  
+  .card1 .isikonten,
+  .card1 .imgc1{
+    width: 100%;
+    padding: 50px;
+    min-height:400px;
+    text-align:center;
+  }
+
+  .imgc4{
+    width: 100%;
+    padding: 50px;
+    min-height:500px;
+    text-align:center;
+  }
+
+  .layanan{
+    padding: 50px;
+  }
+
+  .layanan .container1{
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .layanan .container1 .kotaklayanan{
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .tujuan{
+    padding: 50px;
+    padding-top: 300px;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .klien{
+    padding:50px;
+  }
+
+  .klien .img2{
+    justify-content: center;
+  }
+
+  .testimoni{
+    padding: 50px;
+  }
+
+  .testimoni .container2{
+    padding:50px 20px;
+    justify-content: center;
+    
+  }
+
+  .testimoni .container2 .konten3{
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+}
+
+/*=============
+  MEDIA QUERIES
+==============*/
+
+/*=============
+ MEngatur layout footer saat screen dibawah 600px
+==============*/
+@media screen and (min-width:600px){
+  .footer-kanan>*{
+    flex:1;
+  }
+
+  .footer-kiri{
+    flex:1 0px;
+  }
+
+.footer-kanan{
+    flex:2 0px;
+  }
+
+}
+
+

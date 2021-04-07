@@ -1,0 +1,120 @@
+/*Daftar konten
+1. image container
+2. Logo
+3. Img custom
+4. Overlay
+5. Text Position */
+
+/*===============
+image container
+================*/
+
+.gambar{
+    position:relative;
+    width:100%;
+    height: 100vh;
+    background: #0b0b0c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gambar img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width:100%;
+    height: 100%;
+    opacity: 0.25;
+}
+
+.gambar .konten1{
+    position: relative;
+    max-width:750px;
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+   }
+
+
+.img-container{
+    position:relative;
+    text-align: left;
+    color:black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 100px;
+    width:100%;
+    height: 100%;
+    margin-bottom: 0px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/*===============
+Logo
+================*/
+
+.logo{
+    float:left;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.logo2{
+    float:left;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width:10px;
+    height: 10px;
+}
+
+
+/*===============
+Img custom
+================*/
+
+.img1 {
+    opacity:0.25;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*===============
+Overlay
+================*/
+.overlay{
+    background: rgba(0, 0, 0, 0.966);
+    
+}
+
+/*===============
+Text position
+================*/
+
+.centered {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-weight:200;
+    color:white;
+
+}
+
+@media screen and (max-width: 1040px) {
+    .img1{
+        object-fit: cover;
+    }
+    .centered{
+        object-fit: cover;
+        font-size:10vw;
+    }
+
+    }

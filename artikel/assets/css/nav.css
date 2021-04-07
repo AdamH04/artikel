@@ -1,0 +1,499 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    background: rgb(240, 236, 236);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: candal, 'serif';
+    color: royalblue;
+    margin: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.btn {
+    padding: .5rem 1rem;
+    background: rgb(138, 209, 233);
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-size: 1.2em;
+}
+
+.btn:hover {
+    background: darkblue;
+    color: rgb(200, 250, 247);
+}
+
+.text-input {
+    padding: .7rem 1rem;
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid gray;
+    font-size: 1.2em;
+    color: gray;
+    line-height: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.msg {
+    width: 100%;
+    margin: 5px auto;
+    background: white;
+    border-radius: 5px;
+    list-style: none;
+    padding: 10px 5px 10px 5px;
+}
+
+.sukses {
+    border: 1px solid rgb(9, 170, 9);
+    background: lightgreen;
+    color: green;
+}
+
+.eror {
+    border: 1px solid red;
+    color: rgb(199, 74, 24);
+    background: lightpink;
+}
+
+
+/* NAVBAR DARI HEADER*/
+
+header {
+    background: darkslateblue;
+    height: 66px;
+}
+
+.tampil {
+    max-height: 100em;
+}
+
+header * {
+    color: #fff;
+}
+
+header .logo3 {
+    float: left;
+    height: inherit;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+header .logo-text {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    width: 85px;
+    height: 65px;
+}
+
+header ul {
+    float: right;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+header ul li {
+    float: left;
+    position: relative;
+}
+
+header ul li ul {
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    width: 180px;
+    display: none;
+    z-index: 999;
+}
+
+header ul li:hover ul {
+    display: block;
+}
+
+header ul li ul li {
+    width: 100%;
+}
+
+header ul li ul li a {
+    padding: 10px;
+    background: #fff;
+    color: #444;
+}
+
+header ul li ul li a.logout {
+    color: rgb(202, 14, 14);
+}
+
+header ul li ul li a:hover {
+    background: darkgray;
+    padding: 10px;
+}
+
+header ul li a {
+    display: block;
+    padding: 21px;
+    font-size: 1.1em;
+    text-decoration: none;
+}
+
+header ul li a:hover {
+    background: rgb(4, 4, 48);
+}
+
+
+/*.nav a::before{
+    content:'';
+    display:block;
+    height: 5px;
+    
+    background-color: rgb(68, 0, 156);
+
+    position: relative;
+    top:0;
+    width:0%;
+
+    transition: all ease-in-out 250ms;
+  }*/
+
+header .menu-toggle {
+    display: none;
+}
+
+
+/*SLIDESHOW CAROUSEL*/
+
+.page-wrapper a:hover {
+    color: gold;
+}
+
+.post-slider {
+    position: relative;
+}
+
+.post-slider .next {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.post-slider .prev {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.post-slider .slider-title {
+    text-align: center;
+    margin: 30px;
+}
+
+.post-slider .post-wrapper {
+    width: 84%;
+    height: 350px;
+    margin: auto;
+    padding: 10px 0 10px 0;
+    overflow: hidden;
+}
+
+.post-slider .post-wrapper .post {
+    background: white;
+    display: inline-block;
+    width: 300px;
+    height: 330px;
+    border-radius: 5px;
+    margin: 0 10px;
+    box-shadow: 1rem 1rem 1rem -1rem grey;
+}
+
+.post-slider .post-wrapper .post .post-info {
+    height: 130px;
+    padding: 0 5px;
+}
+
+.post-slider .post-wrapper .post .slider-image {
+    width: 100%;
+    height: 200px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+/*ISI KONTEN WEB*/
+
+.isi {
+    width: 90%;
+    margin: 30px auto 30px;
+}
+
+.isi .isi-utama {
+    width: 70%;
+    float: left;
+}
+
+.isi .isi-utama.single {
+    background: white;
+    padding: 20px 50px;
+    font-size: 1.1em;
+    border-radius: 5px;
+}
+
+.isi .isi-utama.single .post-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.isi .isi-utama .post {
+    width: 95%;
+    height: 270px;
+    margin: 20px auto;
+    border-radius: 5px;
+    box-shadow: 2px 0 4px 0 grey;
+}
+
+.isi .popular .post {
+    border-top: 1px solid gray;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.isi .popular .post img {
+    height: 60px;
+    width: 60px;
+    float: left;
+    margin-right: 10px;
+}
+
+
+/*.isi .isi-utama .post .baca{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+   
+}*/
+
+.isi .isi-utama .post .post-image {
+    widows: 40%;
+    height: 100%;
+    float: left;
+}
+
+.isi .isi-utama .post .post-preview {
+    width: 40%;
+    padding: 10px;
+    float: right;
+}
+
+.isi .isi-utama .recent-post-title {
+    margin: 20px;
+}
+
+.isi .sidebar {
+    width: 30%;
+    float: left;
+}
+
+.isi .sidebar {
+    padding: 0px 10px;
+}
+
+.isi .sidebar .section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 1rem 1rem 1rem -1rem grey;
+}
+
+.isi .sidebar .section.search {
+    margin-top: 70px;
+}
+
+.isi .sidebar .section.topics ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.isi .sidebar .section.topics ul li a {
+    display: block;
+    padding: 10px 0px 10px 0px;
+    border-bottom: 1px solid gray;
+    transition: all 0.4s;
+}
+
+.isi .sidebar .section.topics ul li a:hover {
+    padding-left: 15px;
+    transition: all 0.4s;
+}
+
+
+/*Authentikasi akun (register/login)*/
+
+.auth-content {
+    width: 35%;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.auth-content {
+    margin-bottom: 10px;
+}
+
+.auth-content .form-title {
+    text-align: center;
+}
+
+.auth-content form div {
+    margin-bottom: 10px;
+}
+
+.auth-content p {
+    text-align: center;
+}
+
+.auth-content p a {
+    text-decoration: underline;
+}
+
+
+/*MEDIA QUERIIES NAV BAR*/
+
+@media only screen and (max-width: 1040px) {
+    header {
+        position: relative;
+    }
+    header ul {
+        width: 100%;
+        background: #0E94A0;
+        max-height: 0px;
+        overflow: hidden;
+    }
+    header ul li {
+        width: 100%;
+    }
+    header ul li ul {
+        position: static;
+        width: 100%;
+        display: block;
+    }
+    header ul li ul li a {
+        padding: 10px;
+        background: #0E94A0;
+        color: white;
+        padding-left: 50px;
+    }
+    header ul li ul li a.logout {
+        color: rgb(202, 14, 14);
+    }
+    /*.nav a::before{
+    display: none;
+}*/
+    header .menu-toggle {
+        position: absolute;
+        display: block;
+        top: 20px;
+        right: 10px;
+        font-size: 1.5em;
+        color: lightblue;
+    }
+    header ul li ul li a:hover {
+        background: darkblue;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .post-slider .next {
+        margin-top: 20px;
+    }
+    .post-slider .prev {
+        margin-top: 20px;
+    }
+    .isi {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1144px) {
+    .auth-content {
+        width: 60%;
+    }
+    .isi {
+        width: 100%;
+    }
+    .isi .isi-utama {
+        width: 100%;
+        padding: 10px;
+    }
+    .isi .isi-utama .post {
+        width: 100%;
+    }
+    .isi .sidebar {
+        width: 100%;
+        padding: 10px;
+    }
+    .isi .sidebar .section.search {
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 790px) {
+    .main-contentwrapper {
+        padding: 10px;
+    }
+    .isi .isi-utama.single {
+        padding: 10px 20px;
+    }
+    .isi .isi-utama .post {
+        height: auto;
+    }
+    .isi .isi-utama .post .post-image {
+        width: 100%;
+    }
+    .isi .isi-utama .post .post-preview {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .isi .isi-utama .post .read-more {
+        position: static;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .post-slider .next {
+        right: 10px;
+    }
+    .post-slider .prev {
+        left: 10px;
+    }
+    .auth-content {
+        width: 90%;
+    }
+}
