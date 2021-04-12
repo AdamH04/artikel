@@ -1,5 +1,6 @@
 <?php include("../../path.php") ?>
-<?php include(ROOT_PATH . "/app/controller/posts.php"); ?>
+<?php include(ROOT_PATH . "/app/controller/posts.php");
+adminOnly(); ?>
 <!DOCTYPE html>
 
 <!-- Daftar konten
@@ -80,10 +81,12 @@
                             <td><a href="edit.php?delete_id=<?php echo $post['id']; ?>" class="delete">delete</a></td>
 
                             <?php if ($post['published']) : ?>
-                            <td><a href="edit.php?published=0&p_id=<?php echo $post['id']?>" class="unpublish">Batalkan penerbitan</a></td>
+                            <td><a href="edit.php?published=0&p_id=<?php echo $post['id'] ?>" class="unpublish">Batalkan
+                                    penerbitan</a></td>
 
                             <?php else : ?>
-                            <td><a href="edit.php?published=1&p_id=<?php echo $post['id']?>" class="publish">Terbitkan</a></td>
+                            <td><a href="edit.php?published=1&p_id=<?php echo $post['id'] ?>"
+                                    class="publish">Terbitkan</a></td>
 
                             <?php endif; ?>
 

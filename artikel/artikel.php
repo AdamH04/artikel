@@ -1,7 +1,25 @@
 <!DOCTYPE html>
-<?php 
+<?php
 include("path.php");
 include(ROOT_PATH . "/app/controller/topics.php");
+
+$topics = selectAll('topics');
+$posts = array();
+$postsTitle = 'Artikel terbaru';
+
+//$posts = selectAll('posts', ['published' => 1]);
+
+if (isset($_GET['t_id'])) {
+    $posts = getPostsByTopicId($_GET['t_id']);
+    $postsTitle = "Hasil pencarian dalam kategori '" . $_GET['name'] . "'";
+} else if (isset($_POST['search-term'])) {
+    $postsTitle = "Hasil pencarian '" . $_POST['search-term'] . "'";
+    $posts = searchPosts($_POST['search-term']);
+} else {
+    $posts = getPublishedPosts();
+}
+
+
 ?>
 
 
@@ -40,11 +58,11 @@ include(ROOT_PATH . "/app/controller/topics.php");
             ================= -->
 
     <!--INCLUDE NAVBAR-->
-    <?php 
+    <?php
     include(ROOT_PATH . "/app/includes/header.php");
     ?>
-    
-    <?php include(ROOT_PATH . "/app/includes/messages.php");?>
+
+    <?php include(ROOT_PATH . "/app/includes/messages.php"); ?>
     <!-- ================
               Main body
             ================= -->
@@ -60,37 +78,18 @@ include(ROOT_PATH . "/app/controller/topics.php");
 
                 <div class="post-wrapper">
 
-                    <div class="post"><img src="assets/img/pexels-rebrand-cities-1367272.jpg" class="slider-image">
+                    <?php foreach ($posts as $post) : ?>
+                    <div class="post">
+                        <img src="<?php echo BASE_URL . '/assets/img/' . $post['image']; ?>" class="slider-image">
                         <div class="post-info">
-                            <h4><a href="single.html">Artikel tes 1</a></h4>
-                            <i class="far fa-user"> Adam Hanif</i> &nbsp;
-                            <i class="far fa-calendar"> 22 Maret</i>
+                            <h4><a href="single.php?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a>
+                            </h4>
+                            <i class="far fa-user"> <?php echo $post['name']; ?> </i> &nbsp;
+                            <i class="far fa-calendar">
+                                <?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
                         </div>
                     </div>
-
-                    <div class="post"><img src="assets/img/pexels-rebrand-cities-1367272.jpg" class="slider-image">
-                        <div class="post-info">
-                            <h4><a href="single.html">Artikel tes 1</a></h4>
-                            <i class="far fa-user"> Adam Hanif</i> &nbsp;
-                            <i class="far fa-calendar"> 22 Maret</i>
-                        </div>
-                    </div>
-
-                    <div class="post"><img src="assets/img/pexels-rebrand-cities-1367272.jpg" class="slider-image">
-                        <div class="post-info">
-                            <h4><a href="single.html">Artikel tes 1</a></h4>
-                            <i class="far fa-user"> Adam Hanif</i> &nbsp;
-                            <i class="far fa-calendar"> 22 Maret</i>
-                        </div>
-                    </div>
-
-                    <div class="post"><img src="assets/img/pexels-rebrand-cities-1367272.jpg" class="slider-image">
-                        <div class="post-info">
-                            <h4><a href="single.html">Artikel tes 1</a></h4>
-                            <i class="far fa-user"> Adam Hanif</i> &nbsp;
-                            <i class="far fa-calendar"> 22 Maret</i>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
 
                 </div>
             </div>
@@ -100,51 +99,34 @@ include(ROOT_PATH . "/app/controller/topics.php");
             <div class="isi clearfix">
 
                 <div class="isi-utama">
-                    <h2 class="recent-post-title">Artikel Baru</h2>
-                    <div class="post">
-                        <img src="assets/assets/img/pexels-tatiana-syrikova-3975577.jpg" class="post-image" width="450px" height="400px">
-                        <div class="post-preview">
-                            <h1><a href="single.html">Uji coba artikel 1</a></h1>
-                            <i class="fa fa-user"> Adam Hanif</i> &nbsp;
-                            <i class="fa fa-calendar"> 22 Maret 2021</i>
-                            <p class="preview-text">
-                                Ini teks article percobaan yang akan dilihat user
-                            </p>
-                            <a href="single.html" class="btn baca">Baca lebih lanjut</a>
-                        </div>
-                    </div>
 
-                    <div class="post">
-                        <img src="assets/img/pexels-tatiana-syrikova-3975577.jpg" class="post-image" width="450px" height="400px">
-                        <div class="post-preview">
-                            <h1><a href="single.html">Uji coba artikel 1</a></h1>
-                            <i class="fa fa-user"> Adam Hanif</i> &nbsp;
-                            <i class="fa fa-calendar"> 22 Maret 2021</i>
-                            <p class="preview-text">
-                                Ini teks article percobaan yang akan dilihat user
-                            </p>
-                            <a href="single.html" class="btn baca">Baca lebih lanjut</a>
-                        </div>
-                    </div>
+                    <h2 class="recent-post-title"><?php echo $postsTitle ?></h2>
 
+                    <?php foreach ($posts as $post) : ?>
                     <div class="post">
-                        <img src="assets/img/pexels-tatiana-syrikova-3975577.jpg" class="post-image" width="450px" height="400px">
+                        <img src="<?php echo BASE_URL . '/assets/img/' . $post['image']; ?>" class="post-image"
+                            width="450px" height="400px">
                         <div class="post-preview">
-                            <h1><a href="single.html">Uji coba artikel 1</a></h1>
-                            <i class="fa fa-user"> Adam Hanif</i> &nbsp;
-                            <i class="fa fa-calendar"> 22 Maret 2021</i>
+                            <h1><a href="single.php?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a>
+                            </h1>
+                            <i class="fa fa-user"> <?php echo $post['name']; ?> </i> &nbsp;
+                            <i class="fa fa-calendar"> <?php echo date('F j, Y', strtotime($post['created_at'])); ?>
+                            </i>
                             <p class="preview-text">
-                                Ini teks article percobaan yang akan dilihat user
+                                <?php echo html_entity_decode(substr($post['body'], 0, 100) . '...'); ?>
                             </p>
-                            <a href="single.html" class="btn baca">Baca lebih lanjut</a>
+                            <a href="single.php?id=<?php echo $post['id']; ?>" class="btn baca">Baca lebih lanjut</a>
                         </div>
                     </div>
+                    <?php endforeach; ?>
+
                 </div>
 
                 <div class="sidebar">
+
                     <div class="section search">
                         <h2 class="section-title">Telusuri</h2>
-                        <form action="index.html" method="post">
+                        <form action="artikel.php" method="post">
                             <input type="text" name="search-term" class="text-input" placeholder="Cari..">
                         </form>
                     </div>
@@ -154,9 +136,11 @@ include(ROOT_PATH . "/app/controller/topics.php");
                         <div class="section-title">
                             <ul>
 
-                            <?php foreach ($topics as $key => $topic): ?>
-                                <li><a href=""><?php echo $topic['name'];?></a></li>
-                            <?php endforeach;?>
+                                <?php foreach ($topics as $topic) : ?>
+                                <li><a
+                                        href="<?php echo BASE_URL . '/artikel.php?t_id=' . $topic['id'] . '&name=' . $topic['name']; ?>"><?php echo $topic['name']; ?></a>
+                                </li>
+                                <?php endforeach; ?>
                                 <!--
                                 <li><a href="">security</a></li>
                                 <li><a href="">Organisasi</a></li>
@@ -187,7 +171,9 @@ include(ROOT_PATH . "/app/controller/topics.php");
     <script src="assets/js/dropdown.js"></script>
     <script src="https://kit.fontawesome.com/11a4f52367.js" crossorigin="anonymous"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <script src="assets/js/menu.js"></script>
@@ -198,7 +184,7 @@ include(ROOT_PATH . "/app/controller/topics.php");
     <script src="assets/js/skrollr.js"></script>
 
     <script type="text/javascript">
-        var s = skrollr.init();
+    var s = skrollr.init();
     </script>
 </body>
 

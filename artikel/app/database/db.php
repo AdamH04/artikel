@@ -4,23 +4,25 @@ session_start();
 
 require("connect.php");
 
-function dd($value){
- 
-echo "<pre>", print_r($value,true), "</pre>";
-die();
+function dd($value)
+{
+
+    echo "<pre>", print_r($value, true), "</pre>";
+    die();
 }
 
-function executeQuery($sql, $data){
+function executeQuery($sql, $data)
+{
     global $conn;
-    $stmt =$conn->prepare($sql);
+    $stmt = $conn->prepare($sql);
     $values = array_values($data);
-    $types=str_repeat('s', count($values));
+    $types = str_repeat('s', count($values));
     $stmt->bind_param($types, ...$values);
     $stmt->execute();
     return $stmt;
 }
 
-function selectAll($table, $conditions=[])
+function selectAll($table, $conditions = [])
 {
     global $conn;
     $sql = "SELECT * from $table";
@@ -29,16 +31,16 @@ function selectAll($table, $conditions=[])
         $stmt->execute();
         $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         return $records;
-    }else{
+    } else {
         //$sql="SELECT * FROM $table WHERE username='Adam' AND admin=1";
 
-        $i=0;
+        $i = 0;
         foreach ($conditions as $key => $value) {
-            if ($i===0) {
-                
-            $sql = $sql . " WHERE $key=?";
+            if ($i === 0) {
+
+                $sql = $sql . " WHERE $key=?";
             } else {
-            
+
                 $sql = $sql . " AND $key=?";
             }
             $i++;
@@ -55,27 +57,26 @@ function selectOne($table, $conditions)
 {
     global $conn;
     $sql = "SELECT * from $table";
-   
-        //$sql="SELECT * FROM $table WHERE username='Adam' AND admin=1";
 
-        $i=0;
-        foreach ($conditions as $key => $value) {
-            if ($i===0) {
-                
+    //$sql="SELECT * FROM $table WHERE username='Adam' AND admin=1";
+
+    $i = 0;
+    foreach ($conditions as $key => $value) {
+        if ($i === 0) {
+
             $sql = $sql . " WHERE $key=?";
-            } else {
-            
-                $sql = $sql . " AND $key=?";
-            }
-            $i++;
+        } else {
+
+            $sql = $sql . " AND $key=?";
         }
+        $i++;
+    }
 
-        $sql = $sql . " LIMIT 1";
+    $sql = $sql . " LIMIT 1";
 
-        $stmt = executeQuery($sql, $conditions);
-        $records = $stmt->get_result()->fetch_assoc();
-        return $records;
-    
+    $stmt = executeQuery($sql, $conditions);
+    $records = $stmt->get_result()->fetch_assoc();
+    return $records;
 }
 
 function create($table, $data)
@@ -83,9 +84,9 @@ function create($table, $data)
     global $conn;
     $sql = "INSERT INTO $table SET ";
 
-    $i=0;
+    $i = 0;
     foreach ($data as $key => $value) {
-        if ($i===0) {
+        if ($i === 0) {
             $sql = $sql . " $key=?";
         } else {
             $sql = $sql . ", $key=?";
@@ -93,9 +94,9 @@ function create($table, $data)
         $i++;
     }
 
- $stmt= executeQuery($sql, $data);
- $id = $stmt->insert_id;
- return $id;
+    $stmt = executeQuery($sql, $data);
+    $id = $stmt->insert_id;
+    return $id;
 }
 
 
@@ -106,26 +107,59 @@ function update($table, $id, $data)
     global $conn;
     $sql = "UPDATE $table SET ";
 
-    $i=0;
+    $i = 0;
     foreach ($data as $key => $value) {
-        if ($i===0) {
+        if ($i === 0) {
             $sql = $sql . " $key=?";
         } else {
             $sql = $sql . ", $key=?";
         }
         $i++;
     }
- $sql = $sql . " WHERE id=?";
- $data["id"] = $id;
- $stmt= executeQuery($sql, $data);
- return $stmt->affected_rows;
+    $sql = $sql . " WHERE id=?";
+    $data["id"] = $id;
+    $stmt = executeQuery($sql, $data);
+    return $stmt->affected_rows;
 }
 
 function delete($table, $id)
 {
     global $conn;
     $sql = "DELETE FROM $table WHERE id=?";
-    
-    $stmt = executeQuery($sql, ['id'=>$id]);
+
+    $stmt = executeQuery($sql, ['id' => $id]);
     return $stmt->affected_rows;
+}
+
+function getPublishedPosts()
+{
+    global $conn;
+    //$sql = "SELECT p.*, u.username FROM posts AS p JOIN users AS u ON p.user_id=u.id WHERE p.published=?";
+    $sql = "SELECT p.*, u.name FROM posts AS p JOIN topics AS u ON p.topic_id=u.id WHERE p.published=?";
+    $stmt = executeQuery($sql, ['published' => 1]);
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
+function getPostsByTopicId($topic_id)
+{
+    global $conn;
+    $sql = "SELECT p.*, u.name FROM posts AS p JOIN topics AS u ON p.topic_id=u.id WHERE p.published=? AND topic_id=?";
+    $stmt = executeQuery($sql, ['published' => 1, 'topic_id' => $topic_id]);
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
+function searchPosts($term)
+{
+    $match = '%' . $term . '%';
+    global $conn;
+
+    $sql = "SELECT p.*, u.name FROM posts AS p JOIN topics AS u ON p.topic_id=u.id WHERE p.published=?
+AND p.title LIKE ? OR p.body LIKE ?
+";
+
+    $stmt = executeQuery($sql, ['published' => 1, 'title' => $match, 'body' => $match]);
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
 }

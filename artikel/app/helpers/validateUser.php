@@ -22,10 +22,16 @@ function validateUsers($user){
     }
 
 
-    $existingUser = selectOne('users', ['email' => $user['email']]);
+    $existingPost = selectOne('users', ['email' => $user['email']]);
 
-    if ($existingUser) {
-        array_push($errors, 'Email sudah digunakan');
+    if ($existingPost) {
+        if (isset($user['update-user']) && $existingPost['id']!=$user['id']) {
+            array_push($errors, 'Email tersebut sudah ada');
+        }
+        
+        if (isset($user['create-admin'])) {
+            array_push($errors, 'Email tersebut sudah ada');
+        }
     }
     return $errors;
 }

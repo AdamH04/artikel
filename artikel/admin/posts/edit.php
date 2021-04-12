@@ -1,6 +1,7 @@
 <?php include("../../path.php") ?>
 
-<?php include(ROOT_PATH . "/app/controller/posts.php"); ?>
+<?php include(ROOT_PATH . "/app/controller/posts.php");
+adminOnly(); ?>
 <!DOCTYPE html>
 
 <!-- Daftar konten
@@ -60,6 +61,7 @@
 
             <div class="content">
                 <h2 class="page-title">Edit artikel</h2>
+                <?php include(ROOT_PATH . "/app/helpers/formError.php") ?>
 
                 <form action="edit.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
